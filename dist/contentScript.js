@@ -1,0 +1,1 @@
+chrome.runtime.sendMessage("From the content script",(e=>{console.log(e)}));
