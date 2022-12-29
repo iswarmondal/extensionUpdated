@@ -4,6 +4,8 @@ const HtmlPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = {
     entry: {
@@ -49,6 +51,9 @@ module.exports = {
     "plugins": [
         new CleanWebpackPlugin({
             cleanStaleWebpackAssets: false
+        }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(process.env),
         }),
         new CopyPlugin({
             patterns: [{
